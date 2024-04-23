@@ -10,6 +10,13 @@
   height: 100vh;
   background-color: $bg-main;
 }
+.purplebg{
+
+  background: linear-gradient(180deg, #3333a3 5.09%, #121212 33.4%);
+}
+.yellowbg{
+  background: linear-gradient(180deg, #DEF628 5.09%, #121212 43.28%);
+}
 .main_wrapper {
   width: 100%;
   height: 100%;
@@ -79,8 +86,8 @@
       overflow-y: scroll;
       @include hide-scrollbar;
       width: 62%;
-      background-color: #604ec1;
-      background: linear-gradient(180deg, #3333a3 5.09%, #121212 33.4%);
+      
+
     }
     .right_side {
       height: 87vh;

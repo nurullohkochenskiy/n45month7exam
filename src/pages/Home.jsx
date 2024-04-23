@@ -2,13 +2,13 @@ import React, { useEffect } from "react";
 import useTokenStore from "../store/tokenStore";
 import usePlaylistStore from "../store/playlistStore";
 import Container from "../components/Container";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const {
     loading,
     FeaturedPlaylists,
     YourTopMixes,
-    getSinglePlaylist,
     MadeForYou,
     RecentlyPlayed,
     JumpBackIn,
@@ -18,7 +18,7 @@ const Home = () => {
   return (
     <>
       <Container>
-        <div className="homewrapper">
+        <div className="homewrapper homepagebg">
           <div className="actionspn">
             <svg
               width="36"
@@ -57,10 +57,12 @@ const Home = () => {
             <div className="grid-container">
               {FeaturedPlaylists.map((item, index) => {
                 return (
-                  <div key={index} className="playlist-item">
-                    <img src={item.images[0].url} alt="" />
-                    <div className="playlist-name">{item.name}</div>
-                  </div>
+                  <Link key={index} to={`/infoplaylist/${item.id}`}>
+                    <div  className="playlist-item">
+                      <img src={item.images[0].url} alt="" />
+                      <div className="playlist-name">{item.name}</div>
+                    </div>
+                  </Link>
                 );
               })}
             </div>
@@ -76,16 +78,18 @@ const Home = () => {
             <div className="grid-container">
               {YourTopMixes.map((item, index) => {
                 return (
-                  <div key={index} className="playlist-item">
-                    <img src={item.images[0].url} alt="" />
-                    <div className="playlist-name">{item.name}</div>
-                    <div className="playlist-artists">
-                      {item.namefordisplay.join(",").length <= 30
-                        ? item.namefordisplay.join(", ")
-                        : item.namefordisplay[0]}{" "}
-                      and more
+                  <Link key={index} to={`/infoplaylist/${item.id}`}>
+                    <div  className="playlist-item">
+                      <img src={item.images[0].url} alt="" />
+                      <div className="playlist-name">{item.name}</div>
+                      <div className="playlist-artists">
+                        {item.namefordisplay.join(",").length <= 30
+                          ? item.namefordisplay.join(", ")
+                          : item.namefordisplay[0]}{" "}
+                        and more
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 );
               })}
             </div>
@@ -101,16 +105,18 @@ const Home = () => {
             <div className="grid-container">
               {MadeForYou.map((item, index) => {
                 return (
-                  <div key={index} className="playlist-item">
-                    <img src={item.images[0].url} alt="" />
-                    <div className="playlist-name">{item.name}</div>
-                    <div className="playlist-artists">
-                      {item.namefordisplay.join(",").length <= 30
-                        ? item.namefordisplay.join(", ")
-                        : item.namefordisplay[0]}{" "}
-                      and more
+                  <Link key={index} to={`/infoplaylist/${item.id}`}>
+                    <div  className="playlist-item">
+                      <img src={item.images[0].url} alt="" />
+                      <div className="playlist-name">{item.name}</div>
+                      <div className="playlist-artists">
+                        {item.namefordisplay.join(",").length <= 30
+                          ? item.namefordisplay.join(", ")
+                          : item.namefordisplay[0]}{" "}
+                        and more
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 );
               })}
             </div>
@@ -126,16 +132,18 @@ const Home = () => {
             <div className="grid-container">
               {RecentlyPlayed.map((item, index) => {
                 return (
-                  <div key={index} className="playlist-item">
-                    <img src={item.images[0].url} alt="" />
-                    <div className="playlist-name">{item.name}</div>
-                    <div className="playlist-artists">
-                      {item.namefordisplay.join(",").length <= 30
-                        ? item.namefordisplay.join(", ")
-                        : item.namefordisplay[0]}{" "}
-                      and more
+                  <Link key={index} to={`/infoplaylist/${item.id}`}>
+                    <div  className="playlist-item">
+                      <img src={item.images[0].url} alt="" />
+                      <div className="playlist-name">{item.name}</div>
+                      <div className="playlist-artists">
+                        {item.namefordisplay.join(",").length <= 30
+                          ? item.namefordisplay.join(", ")
+                          : item.namefordisplay[0]}{" "}
+                        and more
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 );
               })}
             </div>
@@ -151,16 +159,18 @@ const Home = () => {
             <div className="grid-container">
               {JumpBackIn.map((item, index) => {
                 return (
-                  <div key={index} className="playlist-item">
-                    <img src={item.images[0].url} alt="" />
-                    <div className="playlist-name">{item.name}</div>
-                    <div className="playlist-artists">
-                      {item.namefordisplay.join(",").length <= 30
-                        ? item.namefordisplay.join(", ")
-                        : item.namefordisplay[0]}{" "}
-                      and more
+                  <Link key={index} to={`/infoplaylist/${item.id}`}>
+                    <div  className="playlist-item">
+                      <img src={item.images[0].url} alt="" />
+                      <div className="playlist-name">{item.name}</div>
+                      <div className="playlist-artists">
+                        {item.namefordisplay.join(",").length <= 30
+                          ? item.namefordisplay.join(", ")
+                          : item.namefordisplay[0]}{" "}
+                        and more
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 );
               })}
             </div>
@@ -176,16 +186,18 @@ const Home = () => {
             <div className="grid-container">
               {UniquelyYours.map((item, index) => {
                 return (
-                  <div key={index} className="playlist-item">
-                    <img src={item.images[0].url} alt="" />
-                    <div className="playlist-name">{item.name}</div>
-                    <div className="playlist-artists">
-                      {item.namefordisplay.join(",").length <= 30
-                        ? item.namefordisplay.join(", ")
-                        : item.namefordisplay[0]}{" "}
-                      and more
+                  <Link key={index}  to={`/infoplaylist/${item.id}`}>
+                    <div className="playlist-item">
+                      <img src={item.images[0].url} alt="" />
+                      <div className="playlist-name">{item.name}</div>
+                      <div className="playlist-artists">
+                        {item.namefordisplay.join(",").length <= 30
+                          ? item.namefordisplay.join(", ")
+                          : item.namefordisplay[0]}{" "}
+                        and more
+                      </div>
                     </div>
-                  </div>
+                  </Link>
                 );
               })}
             </div>

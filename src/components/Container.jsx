@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import usePlaylistStore from "../store/playlistStore";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import useTokenStore from "../store/tokenStore";
 
 const Container = ({ children }) => {
@@ -34,7 +34,6 @@ const Container = ({ children }) => {
     updateToken();
     getFeaturedPlaylists();
     getYourTopMixes();
-    // getSinglePlaylist();
     getMadeForYou();
     getRecentlyPlayed();
     getJumpBackIn();
@@ -67,7 +66,7 @@ const Container = ({ children }) => {
       audio.removeEventListener("timeupdate", handleTimeUpdate);
     };
   }, [audioRef.current]);
-  
+
   const handleSeek = (e) => {
     const newTime = e.target.value;
     audioRef.current.currentTime = newTime;
@@ -98,7 +97,7 @@ const Container = ({ children }) => {
     // console.log(seconds);
     return `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
   }
-
+  const location = useLocation();
   return (
     <>
       {loading ? (
@@ -263,7 +262,7 @@ const Container = ({ children }) => {
                 </ul>
               </div>
             </div>
-            <div className="center">{children}</div>
+            <div className={location.pathname == "/" ? ("purplebg center"): ("yellowbg center")} >{children}</div>
             <div className="right_side">
               <div className="topline">
                 <span className="title text">Friend Activity</span>

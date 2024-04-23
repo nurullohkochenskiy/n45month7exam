@@ -1,12 +1,13 @@
 import create from "zustand";
-const getSinglePlaylist = async (set) => {
+const getSinglePlaylist = async (set, id) => {
   const token = JSON.parse(localStorage.getItem("token"));
+
   set((state) => ({
     ...state,
     loading: true,
   }));
   try {
-    const playlistId = "37i9dQZF1DWZEmUK7BVkZM";
+    const playlistId = id;
     const res = await fetch(
       `https://api.spotify.com/v1/playlists/${playlistId}`,
       {
@@ -20,10 +21,12 @@ const getSinglePlaylist = async (set) => {
     console.log(data);
     set((state) => ({
       ...state,
+      singlePlaylist: data,
       loading: false,
       error: "",
     }));
   } catch (err) {
+    console.log(err);
     set((state) => ({
       ...state,
       loading: false,
@@ -47,7 +50,7 @@ const getFeaturedPlaylists = async (set) => {
       }
     );
     const data = await res.json();
-
+    // console.log(data.playlists.items.slice(0, 6));
     set((state) => ({
       ...state,
       loading: false,
@@ -102,7 +105,7 @@ const getYourTopMixes = async (set) => {
       });
       settingdata = [...mainData];
       // console.log(names);
-      console.log(responseData);
+      // console.log(responseData);
     } catch (error) {
       console.log(error);
     }
@@ -160,7 +163,7 @@ const getMadeForYou = async (set) => {
       });
       settingdata = [...mainData];
       // console.log(names);
-      console.log(responseData);
+      // console.log(responseData);
     } catch (error) {
       console.log(error);
     }
@@ -217,7 +220,7 @@ const getRecentlyPlayed = async (set) => {
       });
       settingdata = [...mainData];
       // console.log(names);
-      console.log(responseData);
+      // console.log(responseData);
     } catch (error) {
       console.log(error);
     }
@@ -274,7 +277,7 @@ const getJumpBackIn = async (set) => {
       });
       settingdata = [...mainData];
       // console.log(names);
-      console.log(responseData);
+      // console.log(responseData);
     } catch (error) {
       console.log(error);
     }
@@ -331,7 +334,7 @@ const getUniquelyYours = async (set) => {
       });
       settingdata = [...mainData];
       // console.log(names);
-      console.log(responseData);
+      // console.log(responseData);
     } catch (error) {
       console.log(error);
     }
@@ -350,13 +353,10 @@ const getUniquelyYours = async (set) => {
   }
 };
 
-
-
-
 const usePlaylistStore = create((set) => ({
   FeaturedPlaylists: [],
   YourTopMixes: [],
-  SinglePlaylist: [],
+  SinglePlaylist: {},
   MadeForYou: [],
   RecentlyPlayed: [],
   JumpBackIn: [],
@@ -365,7 +365,7 @@ const usePlaylistStore = create((set) => ({
   error: "",
   getFeaturedPlaylists: () => getFeaturedPlaylists(set),
   getYourTopMixes: () => getYourTopMixes(set),
-  getSinglePlaylist: () => getSinglePlaylist(set),
+  getSinglePlaylist: (id) => getSinglePlaylist(set, id),
   getMadeForYou: () => getMadeForYou(set),
   getRecentlyPlayed: () => getRecentlyPlayed(set),
   getJumpBackIn: () => getJumpBackIn(set),
