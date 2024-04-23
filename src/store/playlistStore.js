@@ -166,7 +166,7 @@ const getMadeForYou = async (set) => {
     }
     set((state) => ({
       ...state,
-      YourTopMixes: settingdata,
+      MadeForYou: settingdata,
       loading: false,
       error: "",
     }));
@@ -194,10 +194,36 @@ const getRecentlyPlayed = async (set) => {
       }
     );
     const data = await res.json();
-
-    // console.log(data);
+    let settingdata = data.playlists.items.slice(0, 4);
+    try {
+      const arr = data.playlists.items.slice(0, 4);
+      const promises = arr.map(async (item) => {
+        const res = await fetch(item.tracks.href, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        return await res.json();
+      });
+      const responseData = await Promise.all(promises);
+      const mainData = settingdata.map((item, index) => {
+        return {
+          ...item,
+          namefordisplay: [
+            responseData[index].items[0].track.artists[0].name,
+            responseData[index].items[1].track.artists[0].name,
+          ],
+        };
+      });
+      settingdata = [...mainData];
+      // console.log(names);
+      console.log(responseData);
+    } catch (error) {
+      console.log(error);
+    }
     set((state) => ({
       ...state,
+      RecentlyPlayed: settingdata,
       loading: false,
       error: "",
     }));
@@ -225,10 +251,36 @@ const getJumpBackIn = async (set) => {
       }
     );
     const data = await res.json();
-
-    // console.log(data);
+    let settingdata = data.playlists.items.slice(0, 4);
+    try {
+      const arr = data.playlists.items.slice(0, 4);
+      const promises = arr.map(async (item) => {
+        const res = await fetch(item.tracks.href, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        return await res.json();
+      });
+      const responseData = await Promise.all(promises);
+      const mainData = settingdata.map((item, index) => {
+        return {
+          ...item,
+          namefordisplay: [
+            responseData[index].items[0].track.artists[0].name,
+            responseData[index].items[1].track.artists[0].name,
+          ],
+        };
+      });
+      settingdata = [...mainData];
+      // console.log(names);
+      console.log(responseData);
+    } catch (error) {
+      console.log(error);
+    }
     set((state) => ({
       ...state,
+      JumpBackIn: settingdata,
       loading: false,
       error: "",
     }));
@@ -256,10 +308,36 @@ const getUniquelyYours = async (set) => {
       }
     );
     const data = await res.json();
-
-    // console.log(data);
+    let settingdata = data.playlists.items.slice(0, 4);
+    try {
+      const arr = data.playlists.items.slice(0, 4);
+      const promises = arr.map(async (item) => {
+        const res = await fetch(item.tracks.href, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        return await res.json();
+      });
+      const responseData = await Promise.all(promises);
+      const mainData = settingdata.map((item, index) => {
+        return {
+          ...item,
+          namefordisplay: [
+            responseData[index].items[0].track.artists[0].name,
+            responseData[index].items[1].track.artists[0].name,
+          ],
+        };
+      });
+      settingdata = [...mainData];
+      // console.log(names);
+      console.log(responseData);
+    } catch (error) {
+      console.log(error);
+    }
     set((state) => ({
       ...state,
+      UniquelyYours: settingdata,
       loading: false,
       error: "",
     }));
@@ -271,6 +349,9 @@ const getUniquelyYours = async (set) => {
     }));
   }
 };
+
+
+
 
 const usePlaylistStore = create((set) => ({
   FeaturedPlaylists: [],

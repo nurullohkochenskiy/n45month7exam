@@ -124,46 +124,20 @@ const Home = () => {
               <span className="expand">SEE ALL</span>
             </div>
             <div className="grid-container">
-              <div className="playlist-item">
-                <img
-                  src="https://i.scdn.co/image/ab67706f00000002776398ce6326479f7141c838"
-                  alt=""
-                />
-                <div className="playlist-name">Playlistname</div>
-                <div className="playlist-artists">
-                  Julia Wolf, Khalid, ayokay and more
-                </div>
-              </div>
-              <div className="playlist-item">
-                <img
-                  src="https://i.scdn.co/image/ab67706f00000002776398ce6326479f7141c838"
-                  alt=""
-                />
-                <div className="playlist-name">Playlistname</div>
-                <div className="playlist-artists">
-                  Julia Wolf, Khalid, ayokay and more
-                </div>
-              </div>
-              <div className="playlist-item">
-                <img
-                  src="https://i.scdn.co/image/ab67706f00000002776398ce6326479f7141c838"
-                  alt=""
-                />
-                <div className="playlist-name">Playlistname</div>
-                <div className="playlist-artists">
-                  Julia Wolf, Khalid, ayokay and more
-                </div>
-              </div>
-              <div className="playlist-item">
-                <img
-                  src="https://i.scdn.co/image/ab67706f00000002776398ce6326479f7141c838"
-                  alt=""
-                />
-                <div className="playlist-name">Playlistname</div>
-                <div className="playlist-artists">
-                  Julia Wolf, Khalid, ayokay and more
-                </div>
-              </div>
+              {RecentlyPlayed.map((item, index) => {
+                return (
+                  <div key={index} className="playlist-item">
+                    <img src={item.images[0].url} alt="" />
+                    <div className="playlist-name">{item.name}</div>
+                    <div className="playlist-artists">
+                      {item.namefordisplay.join(",").length <= 30
+                        ? item.namefordisplay.join(", ")
+                        : item.namefordisplay[0]}{" "}
+                      and more
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
           {/* //! Recently played end */}
@@ -175,46 +149,20 @@ const Home = () => {
               <span className="expand">SEE ALL</span>
             </div>
             <div className="grid-container">
-              <div className="playlist-item">
-                <img
-                  src="https://i.scdn.co/image/ab67706f00000002776398ce6326479f7141c838"
-                  alt=""
-                />
-                <div className="playlist-name">Playlistname</div>
-                <div className="playlist-artists">
-                  Julia Wolf, Khalid, ayokay and more
-                </div>
-              </div>
-              <div className="playlist-item">
-                <img
-                  src="https://i.scdn.co/image/ab67706f00000002776398ce6326479f7141c838"
-                  alt=""
-                />
-                <div className="playlist-name">Playlistname</div>
-                <div className="playlist-artists">
-                  Julia Wolf, Khalid, ayokay and more
-                </div>
-              </div>
-              <div className="playlist-item">
-                <img
-                  src="https://i.scdn.co/image/ab67706f00000002776398ce6326479f7141c838"
-                  alt=""
-                />
-                <div className="playlist-name">Playlistname</div>
-                <div className="playlist-artists">
-                  Julia Wolf, Khalid, ayokay and more
-                </div>
-              </div>
-              <div className="playlist-item">
-                <img
-                  src="https://i.scdn.co/image/ab67706f00000002776398ce6326479f7141c838"
-                  alt=""
-                />
-                <div className="playlist-name">Playlistname</div>
-                <div className="playlist-artists">
-                  Julia Wolf, Khalid, ayokay and more
-                </div>
-              </div>
+              {JumpBackIn.map((item, index) => {
+                return (
+                  <div key={index} className="playlist-item">
+                    <img src={item.images[0].url} alt="" />
+                    <div className="playlist-name">{item.name}</div>
+                    <div className="playlist-artists">
+                      {item.namefordisplay.join(",").length <= 30
+                        ? item.namefordisplay.join(", ")
+                        : item.namefordisplay[0]}{" "}
+                      and more
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
           {/* //! Jump back in end */}
@@ -226,46 +174,20 @@ const Home = () => {
               <span className="expand">SEE ALL</span>
             </div>
             <div className="grid-container">
-              <div className="playlist-item">
-                <img
-                  src="https://i.scdn.co/image/ab67706f00000002776398ce6326479f7141c838"
-                  alt=""
-                />
-                <div className="playlist-name">Playlistname</div>
-                <div className="playlist-artists">
-                  Julia Wolf, Khalid, ayokay and more
-                </div>
-              </div>
-              <div className="playlist-item">
-                <img
-                  src="https://i.scdn.co/image/ab67706f00000002776398ce6326479f7141c838"
-                  alt=""
-                />
-                <div className="playlist-name">Playlistname</div>
-                <div className="playlist-artists">
-                  Julia Wolf, Khalid, ayokay and more
-                </div>
-              </div>
-              <div className="playlist-item">
-                <img
-                  src="https://i.scdn.co/image/ab67706f00000002776398ce6326479f7141c838"
-                  alt=""
-                />
-                <div className="playlist-name">Playlistname</div>
-                <div className="playlist-artists">
-                  Julia Wolf, Khalid, ayokay and more
-                </div>
-              </div>
-              <div className="playlist-item">
-                <img
-                  src="https://i.scdn.co/image/ab67706f00000002776398ce6326479f7141c838"
-                  alt=""
-                />
-                <div className="playlist-name">Playlistname</div>
-                <div className="playlist-artists">
-                  Julia Wolf, Khalid, ayokay and more
-                </div>
-              </div>
+              {UniquelyYours.map((item, index) => {
+                return (
+                  <div key={index} className="playlist-item">
+                    <img src={item.images[0].url} alt="" />
+                    <div className="playlist-name">{item.name}</div>
+                    <div className="playlist-artists">
+                      {item.namefordisplay.join(",").length <= 30
+                        ? item.namefordisplay.join(", ")
+                        : item.namefordisplay[0]}{" "}
+                      and more
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
           {/* //! Uniquely yours end */}
