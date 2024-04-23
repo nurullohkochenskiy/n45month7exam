@@ -1,0 +1,221 @@
+@import "variables";
+@mixin hide-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+.loadingscreen {
+  width: 100vw;
+  height: 100vh;
+  background-color: $bg-main;
+}
+.main_wrapper {
+  width: 100%;
+  height: 100%;
+
+  .body {
+    display: flex;
+    .left_side {
+      height: 57vh;
+      overflow-y: scroll;
+      @include hide-scrollbar;
+      padding: 60px 30px 0;
+      padding-top: 60px;
+      padding-left: 30px;
+      width: 18%;
+      background-color: $bg-primary;
+      .active_links {
+        margin-bottom: 45px;
+        .active_links_items {
+          .active_links_item {
+            cursor: pointer;
+            margin-bottom: 18px;
+            div {
+              font-size: 15px;
+              display: flex;
+              align-items: center;
+              gap: 20px;
+              font-weight: 700;
+              .sidebar_icons {
+              }
+            }
+          }
+        }
+      }
+      .yourplaylists_sidebar {
+        border-bottom: 1px solid $border-main;
+        .yourplaylists_sidebar_items {
+          .yourplaylists_sidebar_item {
+            cursor: pointer;
+            margin-bottom: 18px;
+            div {
+              font-size: 15px;
+              display: flex;
+              align-items: center;
+              gap: 20px;
+              font-weight: 700;
+            }
+          }
+        }
+      }
+      .playlists_sidebar {
+        .playlists_sidebar_items {
+          margin-top: 20px;
+          .playlists_sidebar_item {
+            cursor: pointer;
+            margin-bottom: 16px;
+            list-style: none;
+            font-size: 16px;
+            font-weight: 450;
+            .listitem {
+            }
+          }
+        }
+      }
+    }
+    .center {
+      height: 87vh;
+      overflow-y: scroll;
+      @include hide-scrollbar;
+      width: 62%;
+      background-color: #604ec1;
+      background: linear-gradient(180deg, #3333a3 5.09%, #121212 33.4%);
+    }
+    .right_side {
+      height: 87vh;
+      width: 20%;
+      background-color: $bg-primary;
+      padding: 14px 18px 0;
+      .topline {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .title {
+          font-weight: 700;
+          font-size: 18px;
+        }
+        .icons {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+        }
+      }
+      .textline {
+        margin-bottom: 20px;
+        .text_content {
+          font-weight: 450;
+          font-size: 16px;
+        }
+      }
+      .friends {
+        .friendlist {
+          .friendlist_item {
+            cursor: pointer;
+            margin-bottom: 18px;
+          }
+        }
+      }
+      .buttonwrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .btn {
+          cursor: pointer;
+          width: 200px;
+          height: 50px;
+          border-radius: 40px;
+          font-weight: 700;
+          font-size: 16px;
+          color: $text-btn;
+          line-height: 20px;
+        }
+      }
+    }
+  }
+  .playing_img {
+    width: 18%;
+    height: 250px;
+    background-color: blue;
+    position: fixed;
+    bottom: 13%;
+  }
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+    .playbar {
+      height: 13vh;
+      width: 100%;
+      padding: 15px;
+      background-color: $bg-playbar;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .title {
+        display: flex;
+        gap: 28px;
+        align-items: center;
+        .info {
+          display: flex;
+          flex-direction: column;
+          .song_name {
+            color: $text-main;
+            font-size: 16px;
+            font-weight: 450;
+            line-height: 22.77px;
+          }
+          .song_artist {
+            font-size: 14px;
+            font-weight: 450;
+            line-height: 20.24px;
+            letter-spacing: -0.05em;
+          }
+        }
+      }
+      .controlbar {
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .controls {
+          display: flex;
+
+          align-items: center;
+        }
+        .progress {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          .time {
+            text-align: center;
+            width: 10%;
+            color: $text-time;
+          }
+          .seeker {
+            cursor: pointer;
+            height: 5px;
+            width: 80%;
+            border-radius: 5px;
+            -webkit-appearance: none;
+            ::-webkit-slider-thumb {
+              -webkit-appearance: none;
+              border-radius: 50%;
+              border: none;
+              display: none;
+              :hover {
+                // display: block;
+              }
+            }
+          }
+        }
+      }
+      .voicebar {
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+}
