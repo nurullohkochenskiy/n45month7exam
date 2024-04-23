@@ -2,15 +2,17 @@ import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Container from "../components/Container";
 import usePlaylistStore from "../store/playlistStore";
+import useMusicStore from "../store/musicStore";
 
 const Playlistinfo = () => {
   const { id } = useParams();
   const { getSinglePlaylist, singlePlaylist } = usePlaylistStore();
+  const {getMusic} = useMusicStore()
   useEffect(() => {
     getSinglePlaylist(id);
   }, []);
 
-  if (!singlePlaylist) {
+  if (!singlePlaylist ) {
     return <div className="loadingscreen"></div>;
   }
   const artistnames = [
@@ -18,7 +20,6 @@ const Playlistinfo = () => {
     singlePlaylist.tracks.items[1].track.artists[0].name,
     singlePlaylist.tracks.items[2].track.artists[0].name,
   ];
-  console.log(singlePlaylist);
   return (
     <>
       <Container>
@@ -276,7 +277,7 @@ const Playlistinfo = () => {
             <ul className="songlist">
               {singlePlaylist.tracks.items.map((item, index) => {
                 return (
-                  <li className="songlist_item">
+                  <li onClick={()=>getMusic(item.track.id)} key={index} className="songlist_item">
                     <div className="left">
                       <span className="order text">{index+1}</span>
                       <img

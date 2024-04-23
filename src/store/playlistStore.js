@@ -17,8 +17,7 @@ const getSinglePlaylist = async (set, id) => {
       }
     );
     const data = await res.json();
-
-    console.log(data);
+console.log(data);
     set((state) => ({
       ...state,
       singlePlaylist: data,
