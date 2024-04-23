@@ -3,8 +3,129 @@
   .body {
     .center {
       .homewrapper {
-        .infos{
+        .infos {
+          display: flex;
           margin-top: 25px;
+          .words {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            color: $text-main;
+            padding: 20px;
+            .type {
+              font-size: 14px;
+              font-weight: 500;
+              line-height: 20.24px;
+              letter-spacing: -0.02em;
+            }
+            .name {
+              font-size: 70px;
+              font-weight: 900;
+            }
+            .artistnames {
+              font-size: 18px;
+              font-weight: 450;
+              line-height: 25.3px;
+            }
+            .moreinfo {
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              .author {
+                color: #ffffffb2;
+                font-size: 16px;
+                font-weight: 450;
+                line-height: 22.77px;
+                letter-spacing: 0.01em;
+                text-align: left;
+              }
+              .details {
+                color: #ffffffb2;
+              }
+            }
+          }
+        }
+        .actions {
+          margin-top: 50px;
+          display: flex;
+          justify-content: space-between;
+          .left {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          }
+          .right {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            .text {
+              color: $text-main !important;
+              font-size: 16px;
+              font-weight: 450;
+              line-height: 22.77px;
+              letter-spacing: -0.01em;
+            }
+          }
+        }
+        .listhead {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          div,
+          span {
+            font-size: 14px;
+            font-weight: 450;
+            line-height: 20.24px;
+            letter-spacing: 0.09em;
+          }
+          .left {
+            margin-right: 130px;
+          }
+          border-bottom: 1px solid #666666;
+          padding: 0 15px;
+        }
+        .songlistwrapper {
+          margin-top: 20px;
+          width: 100%;
+          .songlist {
+            width: 100%;
+            .songlist_item {
+              margin-bottom: 10px;
+              width: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              .left {
+                display: flex;
+                align-items: center;
+                gap: 15px;
+                .order {
+                  font-size: 20px;
+                  font-weight: 450;
+                  line-height: 27.83px;
+                  letter-spacing: 0.02em;
+                }
+                .title{
+                  .name{
+                    color: $text-main;
+                  }
+                }
+              }
+              .center {
+                display: flex;
+                align-items: center;
+              }
+              .right {
+                margin-left: 150px;
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                
+              }
+            }
+          }
         }
       }
     }
