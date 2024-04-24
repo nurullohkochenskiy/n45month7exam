@@ -6,3 +6,4 @@ home pageda hamma playlistlar render bo'ladi
 playlistni bosganda sahifaga kiradi qo'shiqlarni ko'rsatadi
 Qo'shiqni tanlaganda 1-2 sekund kuting yuklashini
 
+
