@@ -292,7 +292,7 @@ const Playlistinfo = () => {
                       </div>
                     </div>
                     <div className="middle">
-                      <span className="albumname text">Play It Safe</span>
+                      <span className="albumname text">{item.track.album.name}</span>
                     </div>
                     <div className="right">
                       <div className="likebtn">
