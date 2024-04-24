@@ -7,12 +7,12 @@ import useMusicStore from "../store/musicStore";
 const Playlistinfo = () => {
   const { id } = useParams();
   const { getSinglePlaylist, singlePlaylist } = usePlaylistStore();
-  const {getMusic} = useMusicStore()
+  const { getMusic } = useMusicStore();
   useEffect(() => {
     getSinglePlaylist(id);
   }, []);
 
-  if (!singlePlaylist ) {
+  if (!singlePlaylist) {
     return <div className="loadingscreen"></div>;
   }
   const artistnames = [
@@ -20,6 +20,14 @@ const Playlistinfo = () => {
     singlePlaylist.tracks.items[1].track.artists[0].name,
     singlePlaylist.tracks.items[2].track.artists[0].name,
   ];
+  function msToMinutesSeconds(ms) {
+    var seconds = Math.floor(ms / 1000);
+    var minutes = Math.floor(seconds / 60);
+    var remainingSeconds = seconds % 60;
+    return (
+      minutes + ":" + (remainingSeconds < 10 ? "0" : "") + remainingSeconds
+    );
+  }
   return (
     <>
       <Container>
@@ -277,9 +285,13 @@ const Playlistinfo = () => {
             <ul className="songlist">
               {singlePlaylist.tracks.items.map((item, index) => {
                 return (
-                  <li onClick={()=>getMusic(item.track.id)} key={index} className="songlist_item">
+                  <li
+                    onClick={() => getMusic(item.track.id)}
+                    key={index}
+                    className="songlist_item"
+                  >
                     <div className="left">
-                      <span className="order text">{index+1}</span>
+                      <span className="order text">{index + 1}</span>
                       <img
                         width={47}
                         height={47}
@@ -288,11 +300,15 @@ const Playlistinfo = () => {
                       />
                       <div className="title">
                         <div className="name">{item.track.name}</div>
-                        <div className="artist text">{item.track.album.artists[0].name}</div>
+                        <div className="artist text">
+                          {item.track.album.artists[0].name}
+                        </div>
                       </div>
                     </div>
                     <div className="middle">
-                      <span className="albumname text">{item.track.album.name}</span>
+                      <span className="albumname text">
+                        {item.track.album.name}
+                      </span>
                     </div>
                     <div className="right">
                       <div className="likebtn">
@@ -316,7 +332,7 @@ const Playlistinfo = () => {
                           </defs>
                         </svg>
                       </div>
-                      <div className="duration">2 : 12</div>
+                      <div className="duration">{msToMinutesSeconds(item.track.duration_ms)}</div>
                     </div>
                   </li>
                 );
