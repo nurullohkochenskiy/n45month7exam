@@ -83,9 +83,7 @@ const Home = () => {
                       <img src={item.images[0].url} alt="" />
                       <div className="playlist-name">{item.name}</div>
                       <div className="playlist-artists">
-                        {item.namefordisplay.join(",").length <= 30
-                          ? item.namefordisplay.join(", ")
-                          : item.namefordisplay[0]}{" "}
+                        
                         and more
                       </div>
                     </div>
@@ -110,9 +108,7 @@ const Home = () => {
                       <img src={item.images[0].url} alt="" />
                       <div className="playlist-name">{item.name}</div>
                       <div className="playlist-artists">
-                        {item.namefordisplay.join(",").length <= 30
-                          ? item.namefordisplay.join(", ")
-                          : item.namefordisplay[0]}{" "}
+                        
                         and more
                       </div>
                     </div>
@@ -137,9 +133,7 @@ const Home = () => {
                       <img src={item.images[0].url} alt="" />
                       <div className="playlist-name">{item.name}</div>
                       <div className="playlist-artists">
-                        {item.namefordisplay.join(",").length <= 30
-                          ? item.namefordisplay.join(", ")
-                          : item.namefordisplay[0]}{" "}
+                       
                         and more
                       </div>
                     </div>
@@ -164,9 +158,7 @@ const Home = () => {
                       <img src={item.images[0].url} alt="" />
                       <div className="playlist-name">{item.name}</div>
                       <div className="playlist-artists">
-                        {item.namefordisplay.join(",").length <= 30
-                          ? item.namefordisplay.join(", ")
-                          : item.namefordisplay[0]}{" "}
+                        
                         and more
                       </div>
                     </div>
@@ -191,9 +183,7 @@ const Home = () => {
                       <img src={item.images[0].url} alt="" />
                       <div className="playlist-name">{item.name}</div>
                       <div className="playlist-artists">
-                        {item.namefordisplay.join(",").length <= 30
-                          ? item.namefordisplay.join(", ")
-                          : item.namefordisplay[0]}{" "}
+                        
                         and more
                       </div>
                     </div>
