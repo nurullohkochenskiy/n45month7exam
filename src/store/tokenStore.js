@@ -1,8 +1,8 @@
 import create from "zustand";
 const getToken = async (set) => {
   //& ClientID va ClientSecretni shu yerdan almashtirib tekshirib ko'rish mumkin
-  const clientId = "b489631a85aa46bbbbffa3ff87ed11fd";
-  const clientSecret = "c8b83f7d5f2f42f29416fa52df3a8a2d";
+  const clientId = "944c445d27b34ba0a7dbb32a001e7be7";
+  const clientSecret = "f649b14dc6e84395a9513f315ca486be";
   set((state) => ({
     ...state,
     loading: true,
