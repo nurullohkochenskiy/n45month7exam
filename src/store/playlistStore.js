@@ -82,32 +82,7 @@ const getYourTopMixes = async (set) => {
     );
     const data = await res.json();
     let settingdata = data.playlists.items.slice(0, 4);
-    try {
-      const arr = data.playlists.items.slice(0, 4);
-      const promises = arr.map(async (item) => {
-        const res = await fetch(item.tracks.href, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        return await res.json();
-      });
-      const responseData = await Promise.all(promises);
-      const mainData = settingdata.map((item, index) => {
-        return {
-          ...item,
-          namefordisplay: [
-            responseData[index].items[0].track.artists[0].name,
-            responseData[index].items[1].track.artists[0].name,
-          ],
-        };
-      });
-      settingdata = [...mainData];
-      // console.log(names);
-      // console.log(responseData);
-    } catch (error) {
-      console.log(error);
-    }
+    console.log(settingdata);
     set((state) => ({
       ...state,
       YourTopMixes: settingdata,
@@ -140,32 +115,7 @@ const getMadeForYou = async (set) => {
     );
     const data = await res.json();
     let settingdata = data.playlists.items.slice(0, 4);
-    try {
-      const arr = data.playlists.items.slice(0, 4);
-      const promises = arr.map(async (item) => {
-        const res = await fetch(item.tracks.href, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        return await res.json();
-      });
-      const responseData = await Promise.all(promises);
-      const mainData = settingdata.map((item, index) => {
-        return {
-          ...item,
-          namefordisplay: [
-            responseData[index].items[0].track.artists[0].name,
-            responseData[index].items[1].track.artists[0].name,
-          ],
-        };
-      });
-      settingdata = [...mainData];
-      // console.log(names);
-      // console.log(responseData);
-    } catch (error) {
-      console.log(error);
-    }
+    
     set((state) => ({
       ...state,
       MadeForYou: settingdata,
@@ -197,32 +147,7 @@ const getRecentlyPlayed = async (set) => {
     );
     const data = await res.json();
     let settingdata = data.playlists.items.slice(0, 4);
-    try {
-      const arr = data.playlists.items.slice(0, 4);
-      const promises = arr.map(async (item) => {
-        const res = await fetch(item.tracks.href, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        return await res.json();
-      });
-      const responseData = await Promise.all(promises);
-      const mainData = settingdata.map((item, index) => {
-        return {
-          ...item,
-          namefordisplay: [
-            responseData[index].items[0].track.artists[0].name,
-            responseData[index].items[1].track.artists[0].name,
-          ],
-        };
-      });
-      settingdata = [...mainData];
-      // console.log(names);
-      // console.log(responseData);
-    } catch (error) {
-      console.log(error);
-    }
+    
     set((state) => ({
       ...state,
       RecentlyPlayed: settingdata,
@@ -254,32 +179,7 @@ const getJumpBackIn = async (set) => {
     );
     const data = await res.json();
     let settingdata = data.playlists.items.slice(0, 4);
-    try {
-      const arr = data.playlists.items.slice(0, 4);
-      const promises = arr.map(async (item) => {
-        const res = await fetch(item.tracks.href, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        return await res.json();
-      });
-      const responseData = await Promise.all(promises);
-      const mainData = settingdata.map((item, index) => {
-        return {
-          ...item,
-          namefordisplay: [
-            responseData[index].items[0].track.artists[0].name,
-            responseData[index].items[1].track.artists[0].name,
-          ],
-        };
-      });
-      settingdata = [...mainData];
-      // console.log(names);
-      // console.log(responseData);
-    } catch (error) {
-      console.log(error);
-    }
+    
     set((state) => ({
       ...state,
       JumpBackIn: settingdata,
@@ -311,32 +211,7 @@ const getUniquelyYours = async (set) => {
     );
     const data = await res.json();
     let settingdata = data.playlists.items.slice(0, 4);
-    try {
-      const arr = data.playlists.items.slice(0, 4);
-      const promises = arr.map(async (item) => {
-        const res = await fetch(item.tracks.href, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        return await res.json();
-      });
-      const responseData = await Promise.all(promises);
-      const mainData = settingdata.map((item, index) => {
-        return {
-          ...item,
-          namefordisplay: [
-            responseData[index].items[0].track.artists[0].name,
-            responseData[index].items[1].track.artists[0].name,
-          ],
-        };
-      });
-      settingdata = [...mainData];
-      // console.log(names);
-      // console.log(responseData);
-    } catch (error) {
-      console.log(error);
-    }
+    
     set((state) => ({
       ...state,
       UniquelyYours: settingdata,
